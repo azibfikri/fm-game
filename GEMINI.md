@@ -50,7 +50,7 @@ Desktop football manager (macOS first, Windows later). Not a web page.
 ## Workflow
 1. Plan first (screens, data model, milestones). Wait for Azib OK.
 2. Build one milestone at a time; short demo/screenshots after each.
-3. Git locally with small commits. No push to work GitHub/GitLab.
+3. Git with small commits. Personal GitHub (`azibfikri`) OK. No work GitHub/GitLab.
 4. Ask before anything that costs money.
 
 ### Milestones

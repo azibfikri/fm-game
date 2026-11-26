@@ -87,7 +87,7 @@ Unit tests target: OVR, XP/level-up, match sim, transfers (logic still local; Ba
 
 - Code only in this folder; no APN / SKVE / work Cursor projects
 - **Exception:** personal Lark Base as game DB only (not work Bases)
-- Local git only; no work remotes
+- Personal GitHub OK (azibfikri); no work remotes
 - Ask before any spend
 - After each milestone: short demo + Done block
 

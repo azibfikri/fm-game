@@ -1,14 +1,16 @@
-# FM Game — Build plan (awaiting Azib OK)
+# FM Game — Build plan
 
-Status: **plan OK · Base created · waiting Gemini personal sign-in before M1 code**  
+Status: **plan OK · web URL ship · CI/CD · M1 still in progress**  
 Path: `/Users/azibfikri/Personal/fm-game`  
-Coding later: Gemini CLI only · personal Google `azibfikri14@gmail.com` · never Cursor for code
+Coding: Gemini CLI only · `GEMINI_API_KEY` · never Cursor for project code  
+Repo: https://github.com/azibfikri/fm-game  
+Public URL (target): https://azibfikri.github.io/fm-game/
 
-**DB (Azib OK 2026-11-26):** **Lark Base** replaces SQLite.  
-Base: [FM Game](https://g-asiapac.sg.larksuite.com/base/NzpwbpB3eaKoKysbuDjl9kf2gmg)  
+**DB:** Lark Base [FM Game](https://g-asiapac.sg.larksuite.com/base/NzpwbpB3eaKoKysbuDjl9kf2gmg)  
 Token: `NzpwbpB3eaKoKysbuDjl9kf2gmg`  
-Tables: Leagues · Clubs · Players · Fixtures · MatchResults · Saves  
-Still no APN/SKVE folders or work bots. Game code stays in this personal folder.
+Tables: Leagues · Clubs · Players · Fixtures · MatchResults · Saves
+
+**Publish (Azib 2026-11-26):** **Web URL only** — revert desktop/Tauri installer ship. CI+CD deploys the Vite site to GitHub Pages.
 
 ---
 
@@ -34,18 +36,9 @@ Still no APN/SKVE folders or work bots. Game code stays in this personal folder.
 
 ## Data model (Lark Base tables)
 
-**Tables:** Leagues · Clubs · Players · Fixtures · MatchResults · Saves
-
-**Player fields:** name, age, nationality, position, clubId, potential, value, wage  
-**Attributes (1–99):** pace, shooting, passing, dribbling, defending, physical, GK  
-**OVR:** weighted from attributes by position (1–99)
-
-**Save row:** money, week, season, weeklyTrainingUsed, modsOn badge
-
-**Runtime:** Lark Base over API · Zustand in memory (live UI)  
-**Needs:** internet + Lark sign-in (current CLI user: Azib Fikri)
-
-**Analogy:** Lark Base is the shared notebook in the cloud; the app reads/writes pages; Zustand is the sticky notes on your desk while you play.
+**Tables:** Leagues · Clubs · Players · Fixtures · MatchResults · Saves  
+**Player + attributes + OVR** as before · **Save** row for money/week/season/mods  
+**Runtime:** Lark Base API · Zustand in memory
 
 ---
 
@@ -53,17 +46,15 @@ Still no APN/SKVE folders or work bots. Game code stays in this personal folder.
 
 ```
 fm-game/
-  game-engine/   # pure TS: OVR, XP, match sim, transfers
-  ui/            # React screens
-  minigames/     # PixiJS training games
-  data/          # seed JSON to push into Lark Base
-  src-tauri/     # Tauri 2 shell
-  PLAN.md
-  BRIEF.md
-  GEMINI.md
+  game-engine/
+  ui/
+  minigames/
+  data/
+  .github/workflows/   # CI + Pages CD
+  PLAN.md BRIEF.md GEMINI.md
 ```
 
-Unit tests target: OVR, XP/level-up, match sim, transfers (logic still local; Base is storage).
+(`src-tauri/` leftover — not used for publish)
 
 ---
 
@@ -71,30 +62,28 @@ Unit tests target: OVR, XP/level-up, match sim, transfers (logic still local; Ba
 
 | Milestone | Delivers |
 |-----------|----------|
-| **M1** | Lark Base wired; create club; view squad; player stats + OVR |
-| **M2** | One training mini-game → A/B/C → XP → attribute/OVR up (write back to Base) |
+| **M1** | Create club; view squad; player stats + OVR (web UI) |
+| **M2** | One training mini-game → A/B/C → XP → OVR up |
 | **M3** | Season fixtures + simulated matches |
-| **M4** | Transfers, money, Mods menu (+ Mods-on badge) |
-| **M5** | Import JSON/CSV into Base, polish, macOS installer |
+| **M4** | Transfers, money, Mods menu |
+| **M5** | Import JSON/CSV, polish, stable public URL |
 
-**Ship check:** Mac install → train once → see grade → OVR rises in Base → Mods work → tests pass
+**Ship check:** Open public URL → train once → grade → OVR up → Mods work → CI green
 
-**Stack:** Tauri 2 + React + TypeScript + Vite · PixiJS · **Lark Base** · Zustand · light theme · made-up names only
+**Stack:** React + TypeScript + Vite · PixiJS · Lark Base · Zustand · light theme · GitHub Pages CI/CD
 
 ---
 
-## Hard rules (kept / updated)
+## CI/CD
+
+- **CI:** on push/PR — `npm ci`, `npm test`, `npm run build`
+- **CD:** on `main` — deploy `dist/` to GitHub Pages (`/fm-game/` base path)
+
+---
+
+## Hard rules
 
 - Code only in this folder; no APN / SKVE / work Cursor projects
-- **Exception:** personal Lark Base as game DB only (not work Bases)
-- Personal GitHub OK (azibfikri); no work remotes
+- Personal Lark Base only; personal GitHub `azibfikri`
 - Ask before any spend
-- After each milestone: short demo + Done block
-
----
-
-## Next
-
-1. Confirm this Lark Base is the intended personal tenant (not a work-only Base you want avoided)
-2. Confirm Gemini CLI signed in as `azibfikri14@gmail.com` (local `google_accounts.json` has no active account yet)
-3. Then M1 coding via Gemini CLI only
+- Gemini CLI for project code

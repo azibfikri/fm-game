@@ -1,4 +1,4 @@
-# Football Manager desktop game (personal)
+# Football Manager web game (personal)
 
 ## Owner
 - Azib, personal project only
@@ -13,14 +13,16 @@
 - Run Gemini CLI from this folder so it loads this file
 
 ## Product
-Desktop football manager (macOS first, Windows later). Not a web page.
+Football manager as a **web app URL** (not a desktop installer). Play in the browser.
 
 ### Stack
-- Tauri 2 (Rust) + React + TypeScript + Vite
+- React + TypeScript + Vite (web)
 - PixiJS for training mini-games
 - Lark Base (personal) for saves / leagues / clubs / players
 - Zustand for live game state in the app
 - Light theme (dark text on light backgrounds)
+- Ship: GitHub Pages URL via CI/CD
+- Note: `src-tauri/` may exist from earlier desktop plan — do not use for publish; web only
 
 ### Data
 - Made-up leagues/clubs/players shipped (no real names/logos/faces)
@@ -44,7 +46,7 @@ Desktop football manager (macOS first, Windows later). Not a web page.
 - “Mods on” badge on save
 
 ### Structure
-- `/game-engine` (pure TS), `/ui`, `/minigames`, `/data`, `/src-tauri`
+- `/game-engine` (pure TS), `/ui`, `/minigames`, `/data`
 - Unit tests: OVR, XP/level-up, match sim, transfers
 
 ## Workflow
@@ -58,14 +60,16 @@ Desktop football manager (macOS first, Windows later). Not a web page.
 - M2: one training mini-game with A/B/C + level-up
 - M3: season fixtures + simulated matches
 - M4: transfers, money, Mods menu
-- M5: import database, polish, macOS installer
+- M5: import database, polish, live public URL
 
 ## Done means
-- App installs and runs on Mac
+- Game opens at the public URL
 - Start save → train in mini-game → see grade → OVR goes up
-- Mods menu works; tests pass
+- Mods menu works; tests pass; CI green
 
 ## Progress
-- Status: M1 in progress via Gemini CLI (GEMINI_API_KEY auth)
-- Base URL: https://g-asiapac.sg.larksuite.com/base/NzpwbpB3eaKoKysbuDjl9kf2gmg
+- Status: Minimal React UI added; Vite configured with '/fm-game/' base; GitHub Actions CI/CD workflows added for GitHub Pages; M1 Lark Base integration next
+- Repo: https://github.com/azibfikri/fm-game
+- Target URL: https://azibfikri.github.io/fm-game/
+- Lark Base: https://g-asiapac.sg.larksuite.com/base/NzpwbpB3eaKoKysbuDjl9kf2gmg
 - Last update: 2026-11-26

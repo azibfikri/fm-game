@@ -36,9 +36,19 @@ Tables: Leagues · Clubs · Players · Fixtures · MatchResults · Saves
 
 ## Data model (Lark Base tables)
 
-**Tables:** Leagues · Clubs · Players · Fixtures · MatchResults · Saves  
-**Player + attributes + OVR** as before · **Save** row for money/week/season/mods  
-**Runtime:** Lark Base API · Zustand in memory
+**Base:** https://g-asiapac.sg.larksuite.com/base/NzpwbpB3eaKoKysbuDjl9kf2gmg  
+
+| Table | Role | Key fields |
+|-------|------|------------|
+| Leagues | seed | Name, Code, Country, Tier, SeasonWeeks |
+| Clubs | seed | Name, Code, ShortName, League (link), Budget, Reputation, Stadium |
+| Players | seed | Name, Code, Club (link), Age, Nationality, Position (select), Pace/Shooting/Passing/Dribbling/Defending/Physical/GK, Potential, Value, Wage, OVR?, Status |
+| Fixtures | later / generate | Name, Code, Season, Week, League, HomeClub, AwayClub, Played |
+| MatchResults | runtime | Name, Code, Fixture (link), HomeGoals, AwayGoals, Events |
+| Saves | runtime | Name, Club (link), Money, Week, Season, WeeklyTrainingUsed, ModsOn |
+
+**Seed order:** Leagues → Clubs → Players. **Runtime:** Lark Base API · Zustand in memory.  
+**Editor prompt:** OpenBot `docs/GF_DATA_ENTRY_PROMPT.md` / Shared `fm-game/GF_DATA_ENTRY_PROMPT.md`
 
 ---
 

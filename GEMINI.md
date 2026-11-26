@@ -20,7 +20,7 @@ Football manager as a **web app URL** (not a desktop installer). Play in the bro
 - PixiJS for training mini-games
 - Lark Base (personal) for saves / leagues / clubs / players
 - Zustand for live game state in the app
-- Light theme (dark text on light backgrounds)
+- Visual: **Dugout** UI (charcoal + pitch green) — see DESIGN.md; not CRM / not light SaaS
 - Ship: GitHub Pages URL via CI/CD
 - Note: `src-tauri/` may exist from earlier desktop plan — do not use for publish; web only
 
@@ -68,7 +68,7 @@ Football manager as a **web app URL** (not a desktop installer). Play in the bro
 - Mods menu works; tests pass; CI green
 
 ## Progress
-- Status: Minimal React UI added; Vite configured with '/fm-game/' base; GitHub Actions CI/CD workflows added for GitHub Pages; M1 Lark Base integration next
+- Status: Dugout UI redesign implemented (full-bleed dark charcoal & pitch-green chrome, squad quick-picks, mini pitch SVG, interactive attribute bars, huge OVR); M1 Lark Base integration next
 - Repo: https://github.com/azibfikri/fm-game
 - Target URL: https://azibfikri.github.io/fm-game/
 - Lark Base: https://g-asiapac.sg.larksuite.com/base/NzpwbpB3eaKoKysbuDjl9kf2gmg

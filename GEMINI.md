@@ -68,7 +68,7 @@ Football manager as a **web app URL** (not a desktop installer). Play in the bro
 - Mods menu works; tests pass; CI green
 
 ## Progress
-- Status: Dugout UI redesign implemented (full-bleed dark charcoal & pitch-green chrome, squad quick-picks, mini pitch SVG, interactive attribute bars, huge OVR); M1 Lark Base integration next
+- Status: Leo's TOP 5 UX fixes implemented (honest nav with real separate Portal/Squad/Profile/Club-Confirm views, unslop copy with zero engine jargon, matchday tunnel Portal hub with 8 squad tiles, default-locked attributes with Coach Tweak toggle & outfield-dimmed GK bar, and M1 spine: Club confirm → Squad table → Player profile); M1 Lark Base integration next
 - Repo: https://github.com/azibfikri/fm-game
 - Target URL: https://azibfikri.github.io/fm-game/
 - Lark Base: https://g-asiapac.sg.larksuite.com/base/NzpwbpB3eaKoKysbuDjl9kf2gmg
